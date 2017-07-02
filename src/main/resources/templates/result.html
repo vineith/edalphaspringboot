@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
+    <script>
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+<!-- CSS -->
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+<body>
+<table id="table_id" class="display">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Degree Date</th>
+        <th>Major</th>
+        <th>Academic Stading</th>
+        <th>Overall GPA</th>
+        <th>Verification Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a th:text="${transcript.studentName}" /></td>
+        <td><a th:text="${transcript.birthDate}"/></td>
+        <td><a th:text="${transcript.degreeDate}"/></td>
+        <td><a th:text="${transcript.major}"/></td>
+        <td><a th:text="${transcript.academicStanding}"/></td>
+        <td><a th:text="${transcript.overallGpa}"/></td>
+        <td><img src="checkmark.jpeg" alt=""/></td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</head>
+</html>
