@@ -2,7 +2,7 @@ package com.edalpha.controller;
 
 import com.edalpha.model.Transcript;
 import com.edalpha.service.PDFReader;
-import com.edalpha.service.TranscriptCreator;
+import com.edalpha.service.TranscriptGatech;
 import com.edalpha.storage.StorageFileNotFoundException;
 import com.edalpha.storage.StorageService;
 import org.apache.tika.exception.TikaException;
@@ -29,7 +29,7 @@ public class FileUploadController {
     @Inject
     PDFReader pdfReader;
     @Inject
-    TranscriptCreator transcriptCreator;
+    TranscriptGatech transcriptGatech;
 
     @Autowired
     public FileUploadController(StorageService storageService) {
@@ -71,7 +71,7 @@ public class FileUploadController {
         try{
             text = pdfReader.read(file.getInputStream());
             System.out.println(text);
-            transcript = transcriptCreator.createTranscript(text);
+            transcript = transcriptGatech.createTranscript(text);
         }
         catch (IOException ex){
             ex.printStackTrace();
