@@ -4,7 +4,7 @@ package com.edalpha.model;
 /**
  * Created by kaul on 6/19/17.
  */
-public class Transcript {
+public class TranscriptModel {
 
     private Long id;
     private String studentName;
@@ -88,7 +88,7 @@ public class Transcript {
 
     @Override
     public String toString() {
-        return "Transcript{" +
+        return "TranscriptModel{" +
                 "id=" + id +
                 ", studentName='" + studentName + '\'' +
                 ", schoolName='" + schoolName + '\'' +

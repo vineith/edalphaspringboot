@@ -1,8 +1,10 @@
 package com.edalpha.controller;
 
-import com.edalpha.model.Transcript;
+import com.edalpha.model.TranscriptModel;
 import com.edalpha.service.PDFReader;
+import com.edalpha.service.TranscriptFactory;
 import com.edalpha.service.TranscriptGatech;
+import com.edalpha.service.TranscriptType;
 import com.edalpha.storage.StorageFileNotFoundException;
 import com.edalpha.storage.StorageService;
 import org.apache.tika.exception.TikaException;
@@ -30,6 +32,8 @@ public class FileUploadController {
     PDFReader pdfReader;
     @Inject
     TranscriptGatech transcriptGatech;
+    @Inject
+    TranscriptFactory transcriptFactory;
 
     @Autowired
     public FileUploadController(StorageService storageService) {
@@ -66,12 +70,12 @@ public class FileUploadController {
     @PostMapping("/")
     public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes , Model model) {
         String text ="";
-        Transcript transcript = null;
+        TranscriptModel transcript = null;
 
         try{
             text = pdfReader.read(file.getInputStream());
             System.out.println(text);
-            transcript = transcriptGatech.createTranscript(text);
+            transcript =  transcriptFactory.getTranscript(TranscriptType.TRANSCRIPT_GATECH,text);
         }
         catch (IOException ex){
             ex.printStackTrace();

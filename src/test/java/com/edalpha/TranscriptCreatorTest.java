@@ -30,7 +30,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 "https://buzzport.gatech.edu/render.UserLayoutRootNode.uP?uP_tparam=utf&utf=%2Fcp%2Fip%2Flogin%3Fsys%3Dsct%26url%3Dhttps%3A%2F%2Foscar.gatech… 2/12\n" +
                 "\n" +
-                "Display Transcript   902797544 Karttikay Moudgil\n" +
+                "Display TranscriptModel   902797544 Karttikay Moudgil\n" +
                 "May 22, 2017 10:25 pm\n" +
                 "\n" +
                 "  If you received a grade of \"NR\", your instructor did not report grades. Please contact the instructor for\n" +
@@ -46,9 +46,9 @@ public class TranscriptCreatorTest {
                 "GPA calculation with the exception of those removed via grade substitution. Click this Grade Substitution\n" +
                 "link to review the policy.\n" +
                 "\n" +
-                "Institution Credit    Transcript Totals\n" +
+                "Institution Credit    TranscriptModel Totals\n" +
                 "\n" +
-                "Transcript Data\n" +
+                "TranscriptModel Data\n" +
                 "STUDENT INFORMATION\n" +
                 "\n" +
                 "Name : Karttikay Moudgil\n" +
@@ -63,7 +63,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "***This is NOT an Official Transcript***\n" +
+                "***This is NOT an Official TranscriptModel***\n" +
                 "\n" +
                 " \n" +
                 "\n" +
@@ -184,7 +184,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Spring 2012\n" +
                 "\n" +
@@ -262,7 +262,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Summer 2012\n" +
                 "\n" +
@@ -322,7 +322,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Fall 2012\n" +
                 "\n" +
@@ -399,7 +399,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Spring 2013\n" +
                 "\n" +
@@ -459,7 +459,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Summer 2013\n" +
                 "\n" +
@@ -507,7 +507,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Fall 2013\n" +
                 "\n" +
@@ -555,7 +555,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Spring 2014\n" +
                 "\n" +
@@ -613,7 +613,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Summer 2014\n" +
                 "\n" +
@@ -661,7 +661,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Fall 2014\n" +
                 "\n" +
@@ -709,7 +709,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Spring 2015\n" +
                 "\n" +
@@ -757,7 +757,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Summer 2015\n" +
                 "\n" +
@@ -805,7 +805,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Logout\n" +
                 "\n" +
@@ -864,7 +864,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "Term: Spring 2016\n" +
                 "\n" +
@@ -912,7 +912,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 "TRANSCRIPT TOTALS (GRADUATE SEMESTER)      \u00ADTop\u00AD\n" +
                 "\n" +
@@ -939,7 +939,7 @@ public class TranscriptCreatorTest {
                 "\n" +
                 " \n" +
                 "\n" +
-                "Unofficial Transcript\n" +
+                "Unofficial TranscriptModel\n" +
                 "\n" +
                 " \n" +
                 "\n" +
