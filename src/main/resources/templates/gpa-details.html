@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1', {packages: ['corechart']});
+google.setOnLoadCallback(drawMaterial);
+
+function drawMaterial() {
+var data = google.visualization.arrayToDataTable([
+['Element', 'GPA'],
+['1st Semester', 3.0],
+['2nd Semester', 3.25],
+['3rd Semester', 3.55 ],
+    ['4th Semester', 3.55 ],
+    ['5th Semester', 3.75 ],
+    ['6th Semester', 3.75 ],
+    ['7th Semester', 4.0 ],
+    ['8th Semester', 4.0 ]
+    // CSS-style declaration
+]);
+
+var options = {
+vAxis:{format:'#.##'}
+};
+var formatter = new google.visualization.NumberFormat(
+{prefix: ''}
+);
+formatter.format(data, 1);
+
+var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+<div id="chart_div"></div>
+</body>
+</html>

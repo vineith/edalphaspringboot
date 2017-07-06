@@ -19,7 +19,6 @@ public class TranscriptFactory {
         TranscriptModel transcript = new TranscriptModel();
         if(transcriptType.equals(TranscriptType.TRANSCRIPT_GATECH)){
 
-
             String name = transcriptGatech.getStudentName(text);
             String birthDate = transcriptGatech.getBirthDate(text);
             transcript.setStudentName(name);
@@ -28,7 +27,9 @@ public class TranscriptFactory {
             transcript.setMajor(transcriptGatech.getMajor(text));
             transcript.setAcademicStanding(transcriptGatech.getAcademicStanding(text));
             transcript.setOverallGpa(transcriptGatech.getOverallGpa(text));
-            //transcript.setDegreeDate(getDegreeDate(text));
+        }
+        if(transcriptType.equals(TranscriptType.TRANSCRIPT_MUMBAI)){
+
         }
 
         return transcript;
