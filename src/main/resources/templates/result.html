@@ -11,13 +11,20 @@
     </script>
 
     <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="webjars/jquery-popup-overlay/1.7.7/jquery.popupoverlay.js"></script>
     <link href="css/starter-template.css" rel="stylesheet"/>
 
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
 
     <script>
     $(document).ready( function () {
-        $('#table_id').DataTable();
+        $('#table_id').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+        $('#my_popup').popup();
     } );
 </script>
 <!-- CSS -->
@@ -26,11 +33,12 @@
 <body>
 <div id="header"></div>
 <br/><br/><br/><br/><br/>
-<table id="table_id" class="display">
+<table id="table_id" class="display nowrap" cellspacing="0" width="100%">
     <thead>
     <tr>
         <th>Name</th>
         <th>School Name</th>
+        <th>School Ranking</th>
         <th>Degree Date</th>
         <th>Major</th>
         <th>GPA</th>
@@ -53,9 +61,10 @@
     <tr>
         <td>Anthony Davies</td>
         <td>Georgia Tech</td>
+        <td>16</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>3.75</td>
+        <td><a class="my_popup_open">3.75</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -64,19 +73,21 @@
     <tr>
         <td>Eric Kelly</td>
         <td>University of Georgia</td>
+        <td>56</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>3.75</td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
+        <td><a class="my_popup_open">3.75</a></td>
+        <td><img src="warning-small.png" alt=""/></td>
         <td>5</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
     </tr>
     <tr>
         <td>Natalie Clark</td>
         <td>University of Michigan</td>
+        <td>27</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>3.75</td>
+        <td><a class="my_popup_open">3.75</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>5</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -84,9 +95,10 @@
     <tr>
         <td>Jennifer Bailey</td>
         <td>University of Florida</td>
+        <td>50</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>3.75</td>
+        <td><a class="my_popup_open">3.75</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>5</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -94,9 +106,10 @@
     <tr>
         <td>Mridula Meda</td>
         <td>Indian Institute of Technology - Bombay</td>
+        <td>444</td>
         <td>May 2015</td>
         <td>Computer Science</td>
-        <td>4.0</td>
+        <td><a class="my_popup_open">4.0</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -105,9 +118,10 @@
     <tr>
         <td>Maya Jamshed Jani</td>
         <td>Mumbai University</td>
+        <td>534</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>4.0</td>
+        <td><a class="my_popup_open">4.0</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -116,9 +130,10 @@
     <tr>
         <td>Wu Zhengcheng</td>
         <td>Tsinghua University</td>
+        <td>2</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>4.0</td>
+        <td><a class="my_popup_open">4.0</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -127,10 +142,11 @@
     <tr>
         <td>Antonio Serra</td>
         <td>University of Padua</td>
+        <td>124</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>4.0</td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
+        <td><a class="my_popup_open">4.0</a></td>
+        <td><img src="warning-small.png" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
 
@@ -138,9 +154,10 @@
     <tr>
         <td>Alonso Villarreal</td>
         <td>University of Seville University</td>
+        <td>553</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>4.0</td>
+        <td><a class="my_popup_open">4.0</a></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
@@ -150,10 +167,11 @@
     <tr>
         <td>Asadi Khosro</td>
         <td>University of Tehran</td>
+        <td>448</td>
         <td>May 2016</td>
         <td>Computer Science</td>
-        <td>4.0</td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
+        <td><a class="my_popup_open">4.0</a></td>
+        <td><img src="warning-small.png" alt=""/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
 
@@ -163,6 +181,13 @@
     </tbody>
 
 </table>
+<div id="my_popup">
+    <a href="https://plot.ly/~sneha.bishnoi/228/" target="_blank" title="Subject GPA" style="display: block; text-align: center;"><img src="https://plot.ly/~sneha.bishnoi/228.png" alt="Subject GPA" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="sneha.bishnoi:228" src="https://plot.ly/embed.js" async></script>
+    <button class="my_popup_close">Close</button>
+</div>
+
+<a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" href="#"><span>Excel</span></a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div id="footer"></div>
 
