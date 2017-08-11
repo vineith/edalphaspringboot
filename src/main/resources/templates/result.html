@@ -3,6 +3,12 @@
 <head>
 
     <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/jquery-ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( document ).tooltip();
+        } );
+    </script>
     <script>
             $(function(){
                 $("#header").load("header-edalpha.html");
@@ -11,6 +17,8 @@
     </script>
 
     <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="webjars/jquery-ui/1.12.1/jquery-ui.css" rel="stylesheet"/>
+
     <script src="webjars/jquery-popup-overlay/1.7.7/jquery.popupoverlay.js"></script>
     <link href="css/starter-template.css" rel="stylesheet"/>
 
@@ -77,7 +85,7 @@
         <td>May 2016</td>
         <td>Computer Science</td>
         <td><a class="my_popup_open">3.75</a></td>
-        <td><img src="warning-small.png" alt=""/></td>
+        <td><img src="warning-small.png" alt="" title="Following errors are found &#013; 1. tetetetete &#013; 2. yutertetryeyrtyter"/></td>
         <td>5</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
     </tr>
@@ -187,7 +195,7 @@
     <button class="my_popup_close">Close</button>
 </div>
 
-<a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" href="#"><span>Excel</span></a>
+<a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" href="transcript-results.xls"><span>Export to Excel</span><img src="excel-icon-small.png" alt=""/></a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div id="footer"></div>
 

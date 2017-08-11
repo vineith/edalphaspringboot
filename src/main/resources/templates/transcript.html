@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/jquery-ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( document ).tooltip();
+        } );
+    </script>
+    <script>
+            $(function(){
+                $("#header").load("header-edalpha.html");
+                $("#footer").load("footer-edalpha.html");
+            });
+    </script>
+
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="webjars/jquery-ui/1.12.1/jquery-ui.css" rel="stylesheet"/>
+
+    <script src="webjars/jquery-popup-overlay/1.7.7/jquery.popupoverlay.js"></script>
+    <link href="css/starter-template.css" rel="stylesheet"/>
+
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
+    <script>
+    $(document).ready( function () {
+        $('#table_id').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+        $('#my_popup').popup();
+    } );
+</script>
+<!-- CSS -->
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+<body>
+<div id="header"></div>
+<br/><br/><br/><br/><br/>
+
+<form method="POST" enctype="multipart/form-data" action="/">
+    <table>
+        <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+        <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+    </table>
+</form>
+
+<ul>
+    <li th:each="file : ${files}">
+        <a th:href="${file}" th:text="${file}" />
+    </li>
+</ul>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div id="footer"></div>
+
+</body>
+</head>
+</html>
+
+
+
+</body>
+</head>
+</html>

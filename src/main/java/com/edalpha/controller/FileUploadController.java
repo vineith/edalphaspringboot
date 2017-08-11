@@ -53,7 +53,8 @@ public class FileUploadController {
                 .collect(Collectors.toList()));
         System.out.println(model);
         System.out.println(">2");
-        return "uploadForm";
+        //return "uploadForm";
+        return "transcript";
     }
 
     @GetMapping("/files/{filename:.+}")
@@ -90,7 +91,7 @@ public class FileUploadController {
 //        model.addAttribute("birthDate",transcript.getBirthDate());
 //        model.addAttribute("degreeDate",transcript.getBirthDate());
 //        model.addAttribute("major",transcript.getMajor());
-        System.out.println(transcript.toString());
+       // System.out.println(transcript.toString());
 
         return "result";
     }
