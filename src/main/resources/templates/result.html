@@ -15,14 +15,21 @@
                 $("#footer").load("footer-edalpha.html");
             });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('.tooltip2').tooltipster();
+        });
+    </script>
 
     <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="webjars/tooltipster/4.2.5/dist/css/tooltipster.bundle.min.css" />
     <link href="webjars/jquery-ui/1.12.1/jquery-ui.css" rel="stylesheet"/>
 
     <script src="webjars/jquery-popup-overlay/1.7.7/jquery.popupoverlay.js"></script>
     <link href="css/starter-template.css" rel="stylesheet"/>
 
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="webjars/tooltipster/4.2.5/dist/js/tooltipster.bundle.min.js"></script>
 
     <script>
     $(document).ready( function () {
@@ -85,7 +92,7 @@
         <td>May 2016</td>
         <td>Computer Science</td>
         <td><a class="my_popup_open">3.75</a></td>
-        <td><img src="warning-small.png" alt="" title="Following errors are found &#013; 1. tetetetete &#013; 2. yutertetryeyrtyter"/></td>
+        <td><img src="warning-small.png" class="tooltip2" title="The pages in the uploaded transcript don't match with the template."/></td>
         <td>5</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
     </tr>
@@ -154,7 +161,7 @@
         <td>May 2016</td>
         <td>Computer Science</td>
         <td><a class="my_popup_open">4.0</a></td>
-        <td><img src="warning-small.png" alt=""/></td>
+        <td><img src="warning-small.png" class="tooltip2" title="The contact number on the transcript doesn't match with template."/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
 
@@ -179,7 +186,7 @@
         <td>May 2016</td>
         <td>Computer Science</td>
         <td><a class="my_popup_open">4.0</a></td>
-        <td><img src="warning-small.png" alt=""/></td>
+        <td><img src="warning-small.png" class="tooltip2" title="warning goes here ......"/></td>
         <td>4</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
 
