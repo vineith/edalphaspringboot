@@ -44,6 +44,12 @@
         } );
         $('#my_popup').popup();
         $('#transcript_popup').popup();
+        $('#gpa_india_popup').popup();
+        $('#gpa_seville_popup').popup();
+        $('#gpa_us_popup').popup();
+        $('#gpa_china_popup').popup();
+        $('#gpa_italy_popup').popup();
+        $('#gpa_iran_popup').popup();
     } );
 </script>
 <!-- CSS -->
@@ -58,8 +64,9 @@
         <th>Name</th>
         <th>School Name</th>
         <th><a target="_blank" href="https://www.foreigncredits.com/Resources/Grade-Conversion/">GPA</a></th>
+        <th>Trends</th>
         <th>Authentication Status</th>
-        <th>School Ranking</th>
+        <th><a  target="_blank" href="https://www.usnews.com/education/best-global-universities/computer-science">School Ranking</a></th>
         <th>Degree Date</th>
         <th>Major</th>
         <th>Transcript</th>
@@ -81,7 +88,8 @@
     <tr>
         <td>Anthony Davies</td>
         <td>Georgia Tech</td>
-        <td><a class="my_popup_open">3.75</a></td>
+        <td>3.75</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>16</td>
         <td>May 2016</td>
@@ -94,7 +102,8 @@
     <tr>
         <td>Eric Kelly</td>
         <td>University of Georgia</td>
-        <td><a class="my_popup_open">3.75</a></td>
+        <td>3.75</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="warning-small.png" class="tooltip-custom" title="1. The pages in the uploaded transcript don't match with the template."/></td>
         <td>56</td>
         <td>May 2016</td>
@@ -106,7 +115,8 @@
     <tr>
         <td>Natalie Clark</td>
         <td>University of Michigan</td>
-        <td><a class="my_popup_open">3.75</a></td>
+        <td>3.75</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>27</td>
         <td>May 2016</td>
@@ -118,7 +128,8 @@
     <tr>
         <td>Jennifer Bailey</td>
         <td>University of Florida</td>
-        <td><a class="my_popup_open">3.75</a></td>
+        <td>3.75</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>50</td>
         <td>May 2016</td>
@@ -130,7 +141,8 @@
     <tr>
         <td>Mridula Meda</td>
         <td>Indian Institute of Technology - Bombay</td>
-        <td><a class="my_popup_open">4.0</a></td>
+        <td>4.0</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>444</td>
         <td>May 2015</td>
@@ -143,7 +155,8 @@
     <tr>
         <td>Maya Jamshed Jani</td>
         <td>Mumbai University</td>
-        <td><a class="my_popup_open">4.0</a></td>
+        <td>4.0</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>534</td>
         <td>May 2016</td>
@@ -156,7 +169,8 @@
     <tr>
         <td>Wu Zhengcheng</td>
         <td>Tsinghua University</td>
-        <td><a class="my_popup_open">4.0</a></td>
+        <td>4.0</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>2</td>
         <td>May 2016</td>
@@ -169,7 +183,8 @@
     <tr>
         <td>Antonio Serra</td>
         <td>University of Padua</td>
-        <td><a class="my_popup_open">4.0</a></td>
+        <td>4.0</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="warning-small.png" class="tooltip-custom" title="1. The contact number on the transcript doesn't match with template."/></td>
         <td>124</td>
         <td>May 2016</td>
@@ -182,7 +197,8 @@
     <tr>
         <td>Alonso Villarreal</td>
         <td>University of Seville University</td>
-        <td><a class="my_popup_open">4.0</a></td>
+        <td>4.0</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
         <td>553</td>
         <td>May 2016</td>
@@ -196,7 +212,8 @@
     <tr>
         <td>Asadi Khosro</td>
         <td>University of Tehran</td>
-        <td><a class="my_popup_open">4.0</a></td>
+        <td>4.0</td>
+        <td><img src=trends-small.png alt=""/></td>
         <td><img src="warning-small.png" class="tooltip-custom" title="1. Course names mismatch"/></td>
         <td>448</td>
         <td>May 2016</td>
@@ -212,8 +229,7 @@
 
 </table>
 <div id="my_popup">
-    <a href="https://plot.ly/~sneha.bishnoi/228/" target="_blank" title="Subject GPA" style="display: block; text-align: center;"><img src="https://plot.ly/~sneha.bishnoi/228.png" alt="Subject GPA" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="sneha.bishnoi:228" src="https://plot.ly/embed.js" async></script>
+    <iframe src="https://sbishnoi.shinyapps.io/semestermarks/" style="border: none; width: 440px; height: 500px"></iframe>
     <button class="my_popup_close">Close</button>
 </div>
 
@@ -221,6 +237,7 @@
     <img src="transcript.png" alt="Subject GPA" style="max-width: 100%;width: 1100px;"  width="1100" />
     <button class="transcript_popup_close">Close</button>
 </div>
+<!-- for gpa pop ups -->
 
 <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" href="transcript-results.xls"><span>Export to Excel</span><img src="excel-icon-small.png" alt=""/></a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
