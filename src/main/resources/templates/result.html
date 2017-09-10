@@ -10,10 +10,10 @@
         } );
     </script>
     <script>
-            $(function(){
-                $("#header").load("header-edalpha.html");
-                $("#footer").load("footer-edalpha.html");
-            });
+        $(function(){
+            $("#header").load("header-edalpha.html");
+            $("#footer").load("footer-edalpha.html");
+        });
     </script>
     <script>
         $(document).ready(function () {
@@ -35,20 +35,17 @@
     <script type="text/javascript" src="webjars/tooltipster/4.2.5/dist/js/tooltipster.bundle.min.js"></script>
 
     <script>
-    $(document).ready( function () {
-        $('#table_id').DataTable( {
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
+        $(document).ready( function () {
+            $('#table_id').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            } );
         } );
-        $('#my_popup').popup();
-        $('#transcript_popup').popup();
-        $('#trends_popup').popup();
-    } );
-</script>
-<!-- CSS -->
-<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    </script>
+    <!-- CSS -->
+    <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
 <body>
 <div id="header"></div>
@@ -56,7 +53,7 @@
 <table id="table_id" class="display nowrap" cellspacing="0" width="100%">
     <thead>
     <tr>
-        <th>Name</th>
+        <th>Name12</th>
         <th>School Name</th>
         <th><a target="_blank" href="https://www.foreigncredits.com/Resources/Grade-Conversion/">GPA</a></th>
         <th>Trends</th>
@@ -70,172 +67,20 @@
     </tr>
     </thead>
     <tbody>
-    <!--<tr>-->
-        <!--<td><a th:text="${transcript.studentName}" /></td>-->
-        <!--<td><a th:text="${transcript.birthDate}"/></td>-->
-        <!--<td><a th:text="${transcript.degreeDate}"/></td>-->
-        <!--<td><a th:text="${transcript.major}"/></td>-->
-        <!--<td><a th:text="${transcript.academicStanding}"/></td>-->
-        <!--<td><a href="gpa-details" th:text="${transcript.overallGpa}"/></td>-->
-        <!--<td><img src="checkmark.jpeg" alt=""/></td>-->
-        <!-- put the above back later-->
-    <!--</tr>-->
     <tr>
-        <td>Anthony Davies</td>
-        <td>Georgia Tech</td>
-        <td>3.75</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
+        <td><a th:text="${transcript.studentName}" /></td>
+        <td><a th:text="${transcript.birthDate}"/></td>
+        <td><a th:text="${transcript.degreeDate}"/></td>
+        <td><a th:text="${transcript.major}"/></td>
+        <td><a th:text="${transcript.academicStanding}"/></td>
+        <td><a href="gpa-details" th:text="${transcript.overallGpa}"/></td>
         <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>16</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-    <tr>
-        <td>Eric Kelly</td>
-        <td>University of Georgia</td>
-        <td>3.75</a></td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="warning-small.png" class="tooltip-custom" title="1. The pages in the uploaded transcript don't match with the template."/></td>
-        <td>56</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>5</td>
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
     </tr>
-    <tr>
-        <td>Natalie Clark</td>
-        <td>University of Michigan</td>
-        <td>3.75</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>27</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>5</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-    </tr>
-    <tr>
-        <td>Jennifer Bailey</td>
-        <td>University of Florida</td>
-        <td>3.75</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>50</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>5</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-    </tr>
-    <tr>
-        <td>Mridula Meda</td>
-        <td>Indian Institute of Technology - Bombay</td>
-        <td>4.0</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>444</td>
-        <td>May 2015</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-    <tr>
-        <td>Maya Jamshed Jani</td>
-        <td>Mumbai University</td>
-        <td>4.0</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>534</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-    <tr>
-        <td>Wu Zhengcheng</td>
-        <td>Tsinghua University</td>
-        <td>3.75</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>2</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-    <tr>
-        <td>Antonio Serra</td>
-        <td>University of Padua</td>
-        <td>3.75</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="warning-small.png" class="tooltip-custom" title="1. The contact number on the transcript doesn't match with template."/></td>
-        <td>124</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-    <tr>
-        <td>Rob Green</td>
-        <td>Geneva College</td>
-        <td>3.33</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
-        <td>97</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-
-    <tr>
-        <td>Asadi Khosro</td>
-        <td>University of Tehran</td>
-        <td>4.0</td>
-        <td><a class="trends_popup_open"><img src=trends-small.png alt=""/></a></td>
-        <td><img src="warning-small.png" class="tooltip-custom" title="1. Course names mismatch"/></td>
-        <td>448</td>
-        <td>May 2016</td>
-        <td>Computer Science</td>
-        <td><a class="transcript_popup_open">View</a></td>
-        <td>4</td>
-        <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
-
-    </tr>
-
-
     </tbody>
 
 </table>
-<div id="my_popup">
-    <iframe src="https://sbishnoi.shinyapps.io/edalpha-multiple/" style="border: none; width: 440px; height: 500px"></iframe>
-    <button class="my_popup_close">Close</button>
-</div>
 
-<div id="transcript_popup">
-    <img src="transcript.png" alt="Subject GPA" style="max-width: 100%;width: 1100px;"  width="1100" />
-    <button class="transcript_popup_close">Close</button>
-</div>
-<div id="trends_popup">
-    <img src="trends_combine_images.png" style="max-width: 100%;width: 1100px;" width="1100" />
-    <button class="trends_popup_close">Close</button>
-</div>
 
 <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" href="transcript-results.xls"><span>Export to Excel</span><img src="excel-icon-small.png" alt=""/></a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

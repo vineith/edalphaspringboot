@@ -13,9 +13,9 @@ public class TranscriptModel {
     private String degreeDate;
     private String major;
     private String overallGpa;
-
-
-
+    private Long degreeDuration;
+    private Long degreeCompletionTime;
+    private String comments;
     private String academicStanding;
 
     //getters and setters
@@ -27,7 +27,6 @@ public class TranscriptModel {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getStudentName() {
         return studentName;
@@ -68,6 +67,7 @@ public class TranscriptModel {
     public void setDegreeDate(String degreeDate) {
         this.degreeDate = degreeDate;
     }
+
     public String getAcademicStanding() {
         return academicStanding;
     }
@@ -82,6 +82,30 @@ public class TranscriptModel {
 
     public void setOverallGpa(String overallGpa) {
         this.overallGpa = overallGpa;
+    }
+
+    public Long getDegreeDuration() {
+        return degreeDuration;
+    }
+
+    public void setDegreeDuration(Long degreeDuration) {
+        this.degreeDuration = degreeDuration;
+    }
+
+    public Long getDegreeCompletionTime() {
+        return degreeCompletionTime;
+    }
+
+    public void setDegreeCompletionTime(Long degreeCompletionTime) {
+        this.degreeCompletionTime = degreeCompletionTime;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     //tostring
