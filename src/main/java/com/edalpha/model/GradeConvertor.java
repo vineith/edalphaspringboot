@@ -5,6 +5,7 @@ package com.edalpha.model;
  */
 
 public class GradeConvertor {
+
     private Long id;
     private String country;
     private Long scaleMin;

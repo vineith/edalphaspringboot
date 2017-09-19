@@ -12,21 +12,22 @@ import javax.inject.Named;
 public class TranscriptFactory {
 
     @Inject
-    TranscriptGatech transcriptGatech;
+    TranscriptUS transcriptUS;
 
     public TranscriptModel getTranscript(TranscriptType transcriptType, String text){
 
         TranscriptModel transcript = new TranscriptModel();
-        if(transcriptType.equals(TranscriptType.TRANSCRIPT_GATECH)){
+        if(transcriptType.equals(TranscriptType.TRANSCRIPT_US)){
 
-            String name = transcriptGatech.getStudentName(text);
-            String birthDate = transcriptGatech.getBirthDate(text);
+            String name = transcriptUS.getStudentName(text);
+            String birthDate = transcriptUS.getBirthDate(text);
             transcript.setStudentName(name);
             transcript.setBirthDate(birthDate);
-            transcript.setDegreeDate(transcriptGatech.getDegreeDate(text));
-            transcript.setMajor(transcriptGatech.getMajor(text));
-            transcript.setAcademicStanding(transcriptGatech.getAcademicStanding(text));
-            transcript.setOverallGpa(transcriptGatech.getOverallGpa(text));
+            transcript.setDegreeDate(transcriptUS.getDegreeDate(text));
+            transcript.setMajor(transcriptUS.getMajor(text));
+            transcript.setAcademicStanding(transcriptUS.getAcademicStanding(text));
+            transcript.setOverallGpa(transcriptUS.getOverallGpa(text));
+            transcript.setSchoolName(transcriptUS.getSchoolName(text));
         }
         if(transcriptType.equals(TranscriptType.TRANSCRIPT_MUMBAI)){
 

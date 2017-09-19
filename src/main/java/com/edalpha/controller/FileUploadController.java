@@ -3,7 +3,7 @@ package com.edalpha.controller;
 import com.edalpha.model.TranscriptModel;
 import com.edalpha.service.PDFReader;
 import com.edalpha.service.TranscriptFactory;
-import com.edalpha.service.TranscriptGatech;
+import com.edalpha.service.TranscriptUS;
 import com.edalpha.service.TranscriptType;
 import com.edalpha.storage.StorageFileNotFoundException;
 import com.edalpha.storage.StorageService;
@@ -31,7 +31,7 @@ public class FileUploadController {
     @Inject
     PDFReader pdfReader;
     @Inject
-    TranscriptGatech transcriptGatech;
+    TranscriptUS transcriptUS;
     @Inject
     TranscriptFactory transcriptFactory;
 
@@ -76,7 +76,7 @@ public class FileUploadController {
         try{
             text = pdfReader.read(file.getInputStream());
             System.out.println(text);
-            transcript =  transcriptFactory.getTranscript(TranscriptType.TRANSCRIPT_GATECH,text);
+            transcript =  transcriptFactory.getTranscript(TranscriptType.TRANSCRIPT_US,text);
         }
         catch (IOException ex){
             ex.printStackTrace();

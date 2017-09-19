@@ -12,14 +12,17 @@ import java.util.regex.Pattern;
 public class TranscriptUtils {
 
     // generic method
-    public String getPattern(String regex, String text){
+    public String getPattern(String regex, String text, boolean firstOccurence){
 
         String matchedString = "";
-        Pattern p = Pattern.compile(regex);//"name: '([^']*)'");
+        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);//"name: '([^']*)'");
         Matcher matcher = p.matcher(text);
 
         while(matcher.find()){
             matchedString = matcher.group();
+            if(firstOccurence){
+                break;
+            }
         }
 
         return matchedString.trim();

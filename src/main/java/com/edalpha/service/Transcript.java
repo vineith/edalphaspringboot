@@ -8,17 +8,17 @@ import java.util.regex.Pattern;
  */
 public interface Transcript {
 
-    public String getStudentName(String text);
+    String getStudentName(String text);
 
-    public String getBirthDate(String text);
+    String getBirthDate(String text);
 
-    public String getMajor(String text);
+    String getMajor(String text);
 
-    public String getAcademicStanding(String text);
+    String getAcademicStanding(String text);
 
-    public String getDegreeDate(String text);
+    String getDegreeDate(String text);
 
-    public String getOverallGpa(String text);
+    String getOverallGpa(String text);
 
-
+    String getSchoolName(String text);
 }
