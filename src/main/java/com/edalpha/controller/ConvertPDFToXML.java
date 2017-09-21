@@ -39,7 +39,6 @@ public class ConvertPDFToXML {
                 }
             }
             String test = strbufe.toString();
-            System.out.println("23232323");
             streamResult = new StreamResult("data123.xml");
             initXML();
             process(test);

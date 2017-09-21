@@ -29,7 +29,6 @@ public class TranscriptUS implements Transcript{
         if(StringUtils.isBlank(birthDate)){
             birthDate  = transcriptUtils.getPattern("Date of Birth.*",text,false).replaceAll("(?i)Date of Birth","").replaceAll(":","");
         }
-        System.out.println("birthDate="+birthDate);
         return birthDate;
     }
 
@@ -53,7 +52,6 @@ public class TranscriptUS implements Transcript{
 
     public String getSchoolName(String text){
         String universityName = transcriptUtils.getPattern("[a-z ]*University[a-z ]*", text, true);
-        System.out.println("university="+universityName);
         return universityName;
     }
 

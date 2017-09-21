@@ -43,7 +43,6 @@ public class FileUploadController {
     @GetMapping("/")
     public String listUploadedFiles(Model model) throws IOException {
 
-        System.out.println(">1");
         model.addAttribute("files", storageService
                 .loadAll()
                 .map(path ->
@@ -51,9 +50,6 @@ public class FileUploadController {
                                 .fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString())
                                 .build().toString())
                 .collect(Collectors.toList()));
-        System.out.println(model);
-        System.out.println(">2");
-        //return "uploadForm";
         return "transcript";
     }
 
@@ -75,7 +71,6 @@ public class FileUploadController {
 
         try{
             text = pdfReader.read(file.getInputStream());
-            System.out.println(text);
             transcript =  transcriptFactory.getTranscript(TranscriptType.TRANSCRIPT_US,text);
         }
         catch (IOException ex){
@@ -104,7 +99,6 @@ public class FileUploadController {
     @GetMapping("/gpa-details")
     public String gpaDetails(Model model) throws IOException {
 
-        System.out.println("gpa details1");
         model.addAttribute("files", storageService
                 .loadAll()
                 .map(path ->
@@ -112,8 +106,6 @@ public class FileUploadController {
                                 .fromMethodName(FileUploadController.class, "serveFile", path.getFileName().toString())
                                 .build().toString())
                 .collect(Collectors.toList()));
-        System.out.println(model);
-        System.out.println(">2");
         return "gpa-details";
     }
 
