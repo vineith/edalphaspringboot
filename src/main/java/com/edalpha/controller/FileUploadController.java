@@ -1,6 +1,8 @@
 package com.edalpha.controller;
 
 import com.edalpha.model.TranscriptModel;
+import com.edalpha.model.Word;
+import com.edalpha.repository.WordRepository;
 import com.edalpha.service.PDFReader;
 import com.edalpha.service.TranscriptFactory;
 import com.edalpha.service.TranscriptUS;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
 import java.io.IOException;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -34,6 +37,8 @@ public class FileUploadController {
     TranscriptUS transcriptUS;
     @Inject
     TranscriptFactory transcriptFactory;
+    @Inject
+    WordRepository wordRepository;
 
     @Autowired
     public FileUploadController(StorageService storageService) {
@@ -88,6 +93,8 @@ public class FileUploadController {
 //        model.addAttribute("major",transcript.getMajor());
        // System.out.println(transcript.toString());
 
+        List<Word> words = wordRepository.findByWord("college");
+        System.out.println("Words="+words);
         return "result";
     }
 

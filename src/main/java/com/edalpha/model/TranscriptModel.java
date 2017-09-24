@@ -1,11 +1,19 @@
 package com.edalpha.model;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by kaul on 6/19/17.
  */
+@Entity
 public class TranscriptModel {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String studentName;
     private String schoolName;

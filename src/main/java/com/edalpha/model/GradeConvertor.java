@@ -1,11 +1,19 @@
 package com.edalpha.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by kaul on 9/9/17.
  */
 
+@Entity
 public class GradeConvertor {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String country;
     private Long scaleMin;
@@ -13,6 +21,11 @@ public class GradeConvertor {
     private String description;
     private String us_grade;
 
+
+    //private no arg constructor needed by JPA
+    private GradeConvertor(){
+
+    }
 
     //getters and setters
     public Long getId() {
