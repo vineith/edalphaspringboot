@@ -1,10 +1,13 @@
 package com.edalpha.service;
 
 
+import com.edalpha.model.Word;
+import com.edalpha.repository.WordRepository;
 import org.apache.commons.lang.StringUtils;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +19,8 @@ public class TranscriptUS implements Transcript{
 
     @Inject
     TranscriptUtils transcriptUtils;
+    @Inject
+    WordRepository wordRepository;
 
 
     public String getStudentName(String text){
@@ -51,7 +56,15 @@ public class TranscriptUS implements Transcript{
     }
 
     public String getSchoolName(String text){
-        String universityName = transcriptUtils.getPattern("[a-z ]*University[a-z ]*", text, true);
+        List<Word> words = wordRepository.getWordBySynonymIds("university");
+        String universityName = "";
+        for (Word word:words) {
+          universityName = transcriptUtils.getPattern("[a-z ]*"+word+"[a-z ]*", text, true);
+           if(!StringUtils.isBlank(universityName)){
+               break;
+           }
+        }
+
         return universityName;
     }
 

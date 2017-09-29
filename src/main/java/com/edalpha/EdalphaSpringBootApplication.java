@@ -41,7 +41,7 @@ public class EdalphaSpringBootApplication {
     //post construct
     @PostConstruct
     void seeWords(){
-        List<Word> words= wordRepository.findByWord("college");
-        logger.info("Words="+words);
+        List<Word> wordsList = wordRepository.getWordBySynonymIds("college");
+        logger.info("words="+wordsList);
     }
 }

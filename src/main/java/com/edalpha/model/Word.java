@@ -46,4 +46,14 @@ public class Word {
     public void setSynId(long synId) {
         this.synId = synId;
     }
+
+    //to string
+    @Override
+    public String toString() {
+        return "Word{" +
+                "id=" + id +
+                ", word='" + word + '\'' +
+                ", synId=" + synId +
+                '}';
+    }
 }
