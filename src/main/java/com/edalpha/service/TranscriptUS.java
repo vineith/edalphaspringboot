@@ -59,10 +59,10 @@ public class TranscriptUS implements Transcript{
         List<Word> words = wordRepository.getWordBySynonymIds("university");
         String universityName = "";
         for (Word word:words) {
-          universityName = transcriptUtils.getPattern("[a-z ]*"+word+"[a-z ]*", text, true);
-           if(!StringUtils.isBlank(universityName)){
-               break;
-           }
+          universityName = transcriptUtils.getPattern("[a-z ]*"+word.getWord()+"[a-z ]*", text, true);
+            if(!StringUtils.isBlank(universityName)){
+                break;
+            }
         }
 
         return universityName;
