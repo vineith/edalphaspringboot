@@ -7,9 +7,8 @@ import org.apache.commons.lang.StringUtils;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by kaul on 6/20/17.
@@ -24,16 +23,21 @@ public class TranscriptUS implements Transcript{
 
 
     public String getStudentName(String text){
-        String regex = "Name(.)*";
-        return  transcriptUtils.getPattern(regex, text, false).replaceAll("Name|name","").replaceAll(":","");
+        //String regex = "Name(.)*";
+        String regex = "^[a-zA-Z\\\\s]*$";
+        //return  transcriptUtils.getPattern(regex, text, false).replaceAll("Name|name","").replaceAll(":","");
+        return transcriptUtils.getPattern(regex, text, false);
 
     }
 
     public String getBirthDate(String text){
-        String birthDate  = transcriptUtils.getPattern("Birth(.)Date.*",text, false).replaceAll("(?i)Birth(.)Date","").replaceAll(":","");
-        if(StringUtils.isBlank(birthDate)){
-            birthDate  = transcriptUtils.getPattern("Date of Birth.*",text,false).replaceAll("(?i)Date of Birth","").replaceAll(":","");
-        }
+
+        //transcriptUtils.getPattern("[a-zA-Z ]*(?i)"+word.getWord()+"(?i)[a-zA-Z ]*", text, true);
+        String birthDate = transcriptUtils.getPattern("[a-zA-z\\s:]*[0-9]{2}-[A-Z]{3}-[0-9]{4}",text, false);
+        //String birthDate  = transcriptUtils.getPattern("Birth(.)Date.*",text, false).replaceAll("(?i)Birth(.)Date","").replaceAll(":","");
+      //  if(StringUtils.isBlank(birthDate)){
+        //    birthDate  = transcriptUtils.getPattern("Date of Birth.*",text,false).replaceAll("(?i)Date of Birth","").replaceAll(":","");
+        //}
         return birthDate;
     }
 
@@ -58,12 +62,31 @@ public class TranscriptUS implements Transcript{
     public String getSchoolName(String text){
         List<Word> words = wordRepository.getWordBySynonymIds("university");
         String universityName = "";
+        List<String> probableMatches = new ArrayList<>();
+        //iterate over all words
         for (Word word:words) {
-          universityName = transcriptUtils.getPattern("[a-z ]*"+word.getWord()+"[a-z ]*", text, true);
+            universityName = transcriptUtils.getPattern("[a-zA-Z ]*(?i)"+word.getWord()+"(?i)[a-zA-Z ]*", text, true);
             if(!StringUtils.isBlank(universityName)){
-                break;
+                probableMatches.add(universityName);
             }
         }
+
+        //find the match
+        if(probableMatches.size() > 1) {
+            for (String probable : probableMatches) {
+                if(probable.contains("of") || probable.contains("OF")){
+                    universityName = probable;
+                }
+
+            }
+        }
+        else{
+            universityName = probableMatches.size() >0 ? probableMatches.get(0): "";
+            if(universityName.split(" ").length > 5){
+                universityName = "";
+            }
+        }
+
 
         return universityName;
     }
