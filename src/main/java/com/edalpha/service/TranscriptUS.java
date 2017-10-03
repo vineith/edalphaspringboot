@@ -32,12 +32,24 @@ public class TranscriptUS implements Transcript{
 
     public String getBirthDate(String text){
 
-        //transcriptUtils.getPattern("[a-zA-Z ]*(?i)"+word.getWord()+"(?i)[a-zA-Z ]*", text, true);
         String birthDate = transcriptUtils.getPattern("[a-zA-z\\s:]*[0-9]{2}-[A-Z]{3}-[0-9]{4}",text, false);
-        //String birthDate  = transcriptUtils.getPattern("Birth(.)Date.*",text, false).replaceAll("(?i)Birth(.)Date","").replaceAll(":","");
-      //  if(StringUtils.isBlank(birthDate)){
-        //    birthDate  = transcriptUtils.getPattern("Date of Birth.*",text,false).replaceAll("(?i)Date of Birth","").replaceAll(":","");
-        //}
+        if(StringUtils.isBlank(birthDate)){
+            //May 12, 1989
+            birthDate = transcriptUtils.getPattern("[a-zA-z\\s?:\\s+]*[A-Za-z]{3} [0-9]{2},\\s*[0-9]{4}",text, false);
+        }
+        if(StringUtils.isBlank(birthDate)){
+            //9/16/1982
+            birthDate = transcriptUtils.getPattern("[a-zA-z\\s?:\\s+]*[0-9]{2}/[0-9]{2}/[0-9]{4}",text, false);
+        }
+        birthDate = birthDate.toUpperCase();
+        if(birthDate.contains("BIRTH")){
+            birthDate = transcriptUtils.getPattern("[0-9]{2}-[A-Z]{3}-[0-9]{4}|[A-Za-z]{3} [0-9]{2},\\s*[0-9]{4}", birthDate, true);
+            return birthDate;
+        }
+        else{
+            birthDate= "";
+        }
+
         return birthDate;
     }
 

@@ -59,8 +59,14 @@ public class TranscriptReaderTest {
         InputStream inputStream = new FileInputStream(file);
         String contents = pdfReader.read(inputStream);
         System.out.println(contents);
-        System.out.println("----"+transcriptUS.getBirthDate(contents));
-        //assertThat(transcriptUS.getBirthDate(contents), Matchers.is("THE UNIVERSITY OF NEW MEXICO"));
+        String text1 = "blah blah 21-DEC-2018";
+        assertThat(transcriptUS.getBirthDate(text1),Matchers.is(""));
+        String text2 = "blah birth blah 21-DEC-2018";
+        assertThat(transcriptUS.getBirthDate(text2),Matchers.is("21-DEC-2018"));
+        String text3 = "blah birth blah May 12, 2018";
+        assertThat(transcriptUS.getBirthDate(text3),Matchers.is("MAY 12, 2018"));
+        String text4 = "blah birth blah 9/16/1982";
+        assertThat(transcriptUS.getBirthDate(text4),Matchers.is("9/16/1982"));
 
     }
 }
