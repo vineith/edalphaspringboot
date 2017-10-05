@@ -39,11 +39,12 @@ public class TranscriptUS implements Transcript{
         }
         if(StringUtils.isBlank(birthDate)){
             //9/16/1982
-            birthDate = transcriptUtils.getPattern("[a-zA-z\\s?:\\s+]*[0-9]{2}/[0-9]{2}/[0-9]{4}",text, false);
+            birthDate = transcriptUtils.getPattern("[a-zA-z\\s?:\\s+]*[0-9][0-9]?/[0-9][0-9]?/[0-9]{4}",text, false);
+
         }
         birthDate = birthDate.toUpperCase();
-        if(birthDate.contains("BIRTH")){
-            birthDate = transcriptUtils.getPattern("[0-9]{2}-[A-Z]{3}-[0-9]{4}|[A-Za-z]{3} [0-9]{2},\\s*[0-9]{4}", birthDate, true);
+        if(birthDate.contains("BIRTH") || birthDate.contains("DOB")){
+            birthDate = transcriptUtils.getPattern("[0-9]{2}-[A-Z]{3}-[0-9]{4}|[A-Za-z]{3} [0-9]{2},\\s*[0-9]{4}|[0-9][0-9]?/[0-9][0-9]?/[0-9]{4}", birthDate, true);
             return birthDate;
         }
         else{
@@ -54,7 +55,8 @@ public class TranscriptUS implements Transcript{
     }
 
     public String getMajor(String text){
-        return  transcriptUtils.getPattern("Major(.)*",text, false).replaceAll("Major","").replace(":","");
+        return transcriptUtils.getPattern("(?i)Major\\s*[:?]\\s*[a-zA-z\\s&,]*",text,true).replaceAll("(?i)Major","").replaceAll(":","").trim();
+        //return  transcriptUtils.getPattern("Major(.)*",text, false).replaceAll("Major","").replace(":","");
 
     }
 

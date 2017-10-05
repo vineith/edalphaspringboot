@@ -59,14 +59,44 @@ public class TranscriptReaderTest {
         InputStream inputStream = new FileInputStream(file);
         String contents = pdfReader.read(inputStream);
         System.out.println(contents);
-        String text1 = "blah blah 21-DEC-2018";
-        assertThat(transcriptUS.getBirthDate(text1),Matchers.is(""));
-        String text2 = "blah birth blah 21-DEC-2018";
-        assertThat(transcriptUS.getBirthDate(text2),Matchers.is("21-DEC-2018"));
-        String text3 = "blah birth blah May 12, 2018";
-        assertThat(transcriptUS.getBirthDate(text3),Matchers.is("MAY 12, 2018"));
-        String text4 = "blah birth blah 9/16/1982";
-        assertThat(transcriptUS.getBirthDate(text4),Matchers.is("9/16/1982"));
+        String text = "blah blah 21-DEC-2018";
+        assertThat(transcriptUS.getBirthDate(text),Matchers.is(""));
+        text = "blah birth blah 21-DEC-2018";
+        assertThat(transcriptUS.getBirthDate(text),Matchers.is("21-DEC-2018"));
+        text = "blah birth blah May 12, 2018";
+        assertThat(transcriptUS.getBirthDate(text),Matchers.is("MAY 12, 2018"));
+        text = "blah birth blah 9/16/1982";
+        assertThat(transcriptUS.getBirthDate(text),Matchers.is("9/16/1982"));
+        text = "blah birth blah 9/16/1983";
+        assertThat(transcriptUS.getBirthDate(text),Matchers.is("9/16/1983"));
+        text = "blah blah blah 9/16/1983";
+        assertThat(transcriptUS.getBirthDate(text),Matchers.is(""));
 
     }
+
+    @Test
+    public void readMajor() throws IOException, TikaException {
+        String text = "Major:Chemistry";
+        assertThat(transcriptUS.getMajor(text), Matchers.is("Chemistry"));
+        text = " afafaMajor : Natural Resources";
+        assertThat(transcriptUS.getMajor(text), Matchers.is("Natural Resources"));
+        text = "major : Natural Resources";
+        assertThat(transcriptUS.getMajor(text), Matchers.is("Natural Resources"));
+        text = "major : Natural & Resources";
+        assertThat(transcriptUS.getMajor(text), Matchers.is("Natural & Resources"));
+        text = "  major : Natural & Resources +\n"+"blah blah";
+        assertThat(transcriptUS.getMajor(text), Matchers.is("Natural & Resources"));
+        text="Major : Natural Resources \n" +
+                " \n" +
+                "SUBJ NO. COURSE TITLE CRED GRD PTS R";
+        assertThat(transcriptUS.getMajor(text), Matchers.is("Natural Resources"));
+        File file = new File("src/test/resources/sample-us-transcript.pdf");
+        InputStream inputStream = new FileInputStream(file);
+        String contents = pdfReader.read(inputStream);
+        System.out.println(contents);
+
+
+
+    }
+
 }
