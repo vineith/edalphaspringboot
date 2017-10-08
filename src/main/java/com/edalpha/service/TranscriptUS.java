@@ -21,12 +21,21 @@ public class TranscriptUS implements Transcript{
     @Inject
     WordRepository wordRepository;
 
+    private static final String NAME="Name";
+    private static final String UNIVERSITY="university";
+
 
     public String getStudentName(String text){
-        //String regex = "Name(.)*";
-        String regex = "^[a-zA-Z\\\\s]*$";
-        //return  transcriptUtils.getPattern(regex, text, false).replaceAll("Name|name","").replaceAll(":","");
-        return transcriptUtils.getPattern(regex, text, false);
+        List<Word> words = wordRepository.getWordBySynonymIds(NAME);
+        String name = "";
+        for (Word word:words) {
+            String regex = "(?i)"+word.getWord()+"[:]?[a-zA-Z. ]*";
+            name = transcriptUtils.getPattern(regex,text, true).replaceAll("(?i)"+word.getWord()+"[:]?","").trim();
+            if(!StringUtils.isBlank(name)){
+                break;
+            }
+        }
+        return name;
 
     }
 
@@ -55,7 +64,7 @@ public class TranscriptUS implements Transcript{
     }
 
     public String getMajor(String text){
-        return transcriptUtils.getPattern("(?i)Major\\s*[:?]\\s*[a-zA-z\\s&,]*",text,true).replaceAll("(?i)Major","").replaceAll(":","").trim();
+        return transcriptUtils.getPattern("(?i)Major\\s*[ a-zA-Z]*\\s*[:?]\\s*[a-zA-z&, ]*",text,true).replaceAll("(?i)Major","").replaceAll(":","").trim();
         //return  transcriptUtils.getPattern("Major(.)*",text, false).replaceAll("Major","").replace(":","");
 
     }

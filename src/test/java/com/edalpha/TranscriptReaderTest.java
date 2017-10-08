@@ -4,6 +4,7 @@ import com.edalpha.service.PDFReader;
 import com.edalpha.service.TranscriptUS;
 import org.apache.tika.exception.TikaException;
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -25,6 +26,9 @@ public class TranscriptReaderTest {
     TranscriptUS transcriptUS;
     @Inject
     PDFReader pdfReader;
+
+    @Before
+
 
     @Test
     public void readTranscripts() throws IOException, TikaException {
@@ -48,8 +52,24 @@ public class TranscriptReaderTest {
 
     @Test
     public void readName() throws IOException, TikaException {
-        String text1 = "Rob Green +\n" + "GA 30328 GPA";
-        assertThat(transcriptUS.getStudentName(text1), Matchers.is("Rob Green"));
+        String text = "Name: Rob Green +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
+        text = "name Rob Green +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
+        text = "NAME Rob Green +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
+        text = "Issued to Rob Green +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
+        text = "Record of Rob Green +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
+        text = "Issued to: Rob Green +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
+        text = "Record of: Rayaj A. Ahmad +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rayaj A. Ahmad"));
+
+
+
+
 
     }
 
@@ -93,6 +113,10 @@ public class TranscriptReaderTest {
         File file = new File("src/test/resources/sample-us-transcript.pdf");
         InputStream inputStream = new FileInputStream(file);
         String contents = pdfReader.read(inputStream);
+        assertThat(transcriptUS.getMajor(contents), Matchers.is("Natural Resources"));
+        text="Major and Department: Chemistry, Sch/Chemistry and\n" +
+                "Biochemistry";
+       // make it work later** assertThat(transcriptUS.getMajor(text), Matchers.is("Chemistry, Sch/Chemistry and Biochemistry"));
         System.out.println(contents);
 
 
