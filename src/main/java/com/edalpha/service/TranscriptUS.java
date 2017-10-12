@@ -29,7 +29,7 @@ public class TranscriptUS implements Transcript{
         List<Word> words = wordRepository.getWordBySynonymIds(NAME);
         String name = "";
         for (Word word:words) {
-            String regex = "(?i)"+word.getWord()+"[:]?[a-zA-Z. ]*";
+            String regex = "(?i)"+word.getWord()+"[:]?[a-zA-Z.\\n ]*";
             name = transcriptUtils.getPattern(regex,text, true).replaceAll("(?i)"+word.getWord()+"[:]?","").trim();
             if(!StringUtils.isBlank(name)){
                 break;
@@ -40,6 +40,8 @@ public class TranscriptUS implements Transcript{
     }
 
     public String getBirthDate(String text){
+        // @// TODO: 10/8/17
+        // we could also abstract all the date format regexes and then loop thorugh
 
         String birthDate = transcriptUtils.getPattern("[a-zA-z\\s:]*[0-9]{2}-[A-Z]{3}-[0-9]{4}",text, false);
         if(StringUtils.isBlank(birthDate)){
@@ -78,8 +80,12 @@ public class TranscriptUS implements Transcript{
     }
 
     public String getOverallGpa(String text){
-        String gpaString =  transcriptUtils.getPattern("Overall(.)*",text, false).replaceAll("Overall","");
+        String gpaString =  transcriptUtils.getPattern("Overall[\\n \\w\\d.]*",text, false);
         return transcriptUtils.getPattern("([0-3]\\.\\d+|4\\.00)$",gpaString,false);
+    }
+
+    public List<String> getSemesterGpas(String text){
+        return transcriptUtils.getAllMatches("(.*[0-3]\\.\\d+|4\\.00).*",text);
     }
 
     public String getSchoolName(String text){

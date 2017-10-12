@@ -66,6 +66,9 @@ public class TranscriptReaderTest {
         assertThat(transcriptUS.getStudentName(text), Matchers.is("Rob Green"));
         text = "Record of: Rayaj A. Ahmad +\n" + "GA 30328 GPA";
         assertThat(transcriptUS.getStudentName(text), Matchers.is("Rayaj A. Ahmad"));
+        text = "Issued To \n Rayaj A. Ahmad +\n" + "GA 30328 GPA";
+        assertThat(transcriptUS.getStudentName(text), Matchers.is("Rayaj A. Ahmad"));
+
 
 
 
@@ -120,7 +123,34 @@ public class TranscriptReaderTest {
         System.out.println(contents);
 
 
+    }
+
+    @Test
+    public void getOverallGpa() throws IOException, TikaException{
+        File file = new File("src/test/resources/dummy_transcript_kt.pdf");
+        InputStream inputStream = new FileInputStream(file);
+        String contents = pdfReader.read(inputStream);
+        //System.out.println(contents);
+        //System.out.println("---->"+transcriptUS.getOverallGpa(contents));
+        assertThat(transcriptUS.getOverallGpa(contents), Matchers.is("3.17"));
+        String text = "Overall blah blah blah 3. jhsdhjshdbjhshdjhsjd jhjsdhjshjds djhsdjhsdjhsd \n \n \n \n " +
+                "3.50";
+        assertThat(transcriptUS.getOverallGpa(text), Matchers.is("3.50"));
 
     }
+
+    @Test
+    public void getAllGpa() throws IOException, TikaException{
+        //File file = new File("src/test/resources/sample-us-transcript.pdf");
+        File file = new File("src/test/resources/dummy_transcript_kt.pdf");
+        InputStream inputStream = new FileInputStream(file);
+        String contents = pdfReader.read(inputStream);
+        System.out.println(contents);
+        for (String str:transcriptUS.getSemesterGpas(contents)) {
+            System.out.println("-->"+str);
+        }
+
+    }
+
 
 }

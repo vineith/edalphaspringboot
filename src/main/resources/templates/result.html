@@ -60,7 +60,7 @@
         <th>Major</th>
         <th><a target="_blank" href="https://www.foreigncredits.com/Resources/Grade-Conversion/">GPA</a></th>
         <th>Trends</th>
-        <th>Authentication Status</th>
+        <!--<th>Authentication Status</th>-->
         <th><a  target="_blank" href="https://www.usnews.com/education/best-global-universities/computer-science">School Ranking</a></th>
         <th>Transcript</th>
         <th>Degree Completion time</th>
@@ -74,9 +74,8 @@
         <td><a th:text="${transcript.birthDate}"/></td>
         <td><a th:text="${transcript.degreeDate}"/></td>
         <td><a th:text="${transcript.major}"/></td>
-        <td><a th:text="${transcript.academicStanding}"/></td>
         <td><a href="gpa-details" th:text="${transcript.overallGpa}"/></td>
-        <td><img src="checkmark.jpeg" alt=""/></td>
+        <!--<td><img src="checkmark.jpeg" alt=""/></td>-->
         <td><input type="textarea" rows="10" cols="45" name="push_title" /></td>
     </tr>
     </tbody>
